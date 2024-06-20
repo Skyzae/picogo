@@ -12,12 +12,31 @@ Paste string as shown above after removing ";:" from
 the end and "Online Sequencer:120233:" from the start
 """
 
-from machine import Pin
+
+
+# 0.5ms/20ms = 0.025 = 2.5% duty cycle
+# 2.4ms/20ms = 0.12 = 12% duty cycle
+
+# 0.025*65535=1638
+# 0.12*65535=7864
+
+from machine import Pin, PWM
 
 #One buzzer on pin 0
 mySong = music(song2, pins=[Pin(16)])
+led_pin = Pin(18, Pin.OUT)
+sg90 = PWM(Pin(12, mode=Pin.OUT))
+sg90.freq(50)
+counter = 0
 
 while True:
     mySong.tick()
+    sg90.duty_u16(1638)
+    counter += 1
+    
+    if counter % 4 == 0:
+        led_pin.value(not led_pin.value())
+        sg90.duty_u16(7864)
+    
+    
     sleep(0.05)
-
