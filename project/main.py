@@ -12,9 +12,6 @@ song2 = '0 E5 1 13;1 C5 1 13;2 E5 1 13;3 C5 1 13;4 E5 1 13;5 C5 1 13;6 E5 1 13;7
 mySong = music(song2, pins=[Pin(4)])
 led_pin = Pin(8, Pin.OUT)
 
-# create a counter for the LED
-counter = 0
-
 # create a PWM servo controller (9 - pin Pico)
 servo_pwm = PWM(Pin(9))
 
@@ -49,6 +46,7 @@ def dist():
     return distance
 
 def escape():
+    counter = 0
     while True:
         picoGo.forward(100)
         mySong.tick()
@@ -58,15 +56,16 @@ def escape():
         # turn counter-clockwise with a force of 50
         servo.turn_ccv(50)
         
-        if counter >= 250:
+        if counter >= 100:
             servo.stop()
             mySong.stop()
             led_pin.value(0)
+            picoGo.stop()
             break
         else :
             if counter % 4 == 0:
                 led_pin.value(not led_pin.value())
-            if counter % 2 == 0:
+            if counter % 10 == 0:
                 picoGo.left(100)
             else:
                 picoGo.right(100)
@@ -78,10 +77,10 @@ while True:
     distance = dist()
     print(distance)
     if distance < 10:
-        picoGo.backward(50)
+        picoGo.backward(100)
         sleep(0.5)
         picoGo.left(100)
-        sleep(0.5)
+        sleep(1)
         picoGo.stop()
         escape()
     sleep(1)
