@@ -69,6 +69,13 @@ def escape():
         strip.pixels_set(3, strip.COLORS[counter % 8])
         strip.pixels_show()
         
+        distance = dist()
+        if distance < 5:
+            picoGo.backward(50)
+            sleep(0.1)
+            picoGo.left(40)
+            sleep(0.3)
+        
         if counter >= 80:
             servo.stop()
             led_pin.value(0)
