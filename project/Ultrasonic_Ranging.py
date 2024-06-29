@@ -21,5 +21,5 @@ def dist():
     return distance
 
 while True:
-    print(dist())
+    #print(dist())
     utime.sleep(1)

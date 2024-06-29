@@ -25,10 +25,10 @@ for i in range(100):
     else:
         M.setMotor(-30,30)
     TRS.calibrate()
-print("\ncalibrate done\r\n")
-print(TRS.calibratedMin)
-print(TRS.calibratedMax)
-print("\ncalibrate done\r\n")
+#print("\ncalibrate done\r\n")
+#print(TRS.calibratedMin)
+#print(TRS.calibratedMax)
+#print("\ncalibrate done\r\n")
 maximum = 100
 integral = 0
 last_proportional = 0

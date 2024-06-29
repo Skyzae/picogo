@@ -146,12 +146,12 @@ class TRSensor():
         if(on_line != 1):
             # If it last read to the left of center, return 0.
             if(self.last_value < (self.numSensors - 1)*1000/2):
-                #print("left")
+                ##print("left")
                 self.last_value = 0;
 
             # If it last read to the right of center, return the max.
             else:
-                #print("right")
+                ##print("right")
                 self.last_value = (self.numSensors - 1)*1000
         else:
             self.last_value = avg/sum
@@ -160,9 +160,9 @@ class TRSensor():
 
 if __name__ == '__main__':
 
-    print("\nTRSensor Test Program ...\r\n")
+    #print("\nTRSensor Test Program ...\r\n")
     TRS=TRSensor()
     while True:
-        print(TRS.AnalogRead())
+        #print(TRS.AnalogRead())
         time.sleep(0.1)
                 

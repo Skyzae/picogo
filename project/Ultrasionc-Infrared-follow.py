@@ -72,7 +72,7 @@ def dist():
 while True:
     
     D = dist()
-#     print("Distance:%6.2f cm" % dist())
+#     #print("Distance:%6.2f cm" % dist())
 #     utime.sleep(1)
     DR_status = DSR.value()
     DL_status = DSL.value()
@@ -91,7 +91,7 @@ while True:
         lcd.text("Voltage     :  {:5.2f} V".format(v),30,65,0xFFFF)
         lcd.text("percent     :   {:3.1f} %".format(p),30,80,0xFFFF)
         lcd.show()
-    print(D)
+    #print(D)
     if(D<5):
         M.stop()
     elif((DL_status == 0) and (DR_status == 1)):

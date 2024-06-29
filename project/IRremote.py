@@ -54,30 +54,30 @@ while True:
         n = 0
         if key == 0x18:
             M.forward(speed)
-            print("forward")
+            #print("forward")
         if key == 0x08:
             M.left(20)
-            print("left")
+            #print("left")
         if key == 0x1c:
             M.stop()
-            print("stop")
+            #print("stop")
         if key == 0x5a:
             M.right(20)
-            print("right")
+            #print("right")
         if key == 0x52:
             M.backward(speed)
-            print("backward")
+            #print("backward")
         if key == 0x09:
             speed = 50
-            print(speed)
+            #print(speed)
         if key == 0x15:
             if(speed + 10 < 101):
                 speed += 10
-            print(speed)
+            #print(speed)
         if key == 0x07:
             if(speed - 10 > -1):
                 speed -= 10
-            print(speed)
+            #print(speed)
     else:
         n += 1
         if n > 800:

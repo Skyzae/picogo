@@ -76,7 +76,7 @@ class ServoPDM360RP2Async(ServoPDM360):
             try:
                 callback()
             except Exception as e:
-                print('ServoPDM360RP2Async error in callback', e)
+                #print('ServoPDM360RP2Async error in callback', e)
 
     @staticmethod
     def __normalize_time(time):
@@ -128,7 +128,7 @@ class ServoPDM360RP2Irq(ServoPDM360):
             self._last_action_generator = None
             self.__call_callback()
         except Exception as e:
-            print('ServoPDM360RP2Irq error in __run_generator', e)
+            #print('ServoPDM360RP2Irq error in __run_generator', e)
             self.stop()
 
     def __call_callback(self):
@@ -138,7 +138,7 @@ class ServoPDM360RP2Irq(ServoPDM360):
             try:
                 _callback()
             except Exception as e:
-                print('ServoPDM360RP2Irq error in callback', e)
+                #print('ServoPDM360RP2Irq error in callback', e)
 
     def __timer_tick(self, *args):
         if self._continue_action_at != 0:
@@ -152,5 +152,5 @@ class ServoPDM360RP2Irq(ServoPDM360):
                     self._last_action_generator = None
                     self.__call_callback()
                 except Exception as e:
-                    print('ServoPDM360RP2Irq error in timer tick', e)
+                    #print('ServoPDM360RP2Irq error in timer tick', e)
                     self.stop()

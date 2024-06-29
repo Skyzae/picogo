@@ -94,16 +94,16 @@ class NeoPixel(object):
 
 if __name__=='__main__':
     strip = NeoPixel()
-    print("fills")
+    #print("fills")
     for color in strip.COLORS:       
         strip.pixels_fill(color)
         strip.pixels_show()
         time.sleep(0.5)
 
-    print("chases")
+    #print("chases")
     for color in strip.COLORS:       
         strip.color_chase(color, 0.05)
 
-    print("rainbow")
+    #print("rainbow")
     while(1):
         strip.rainbow_cycle(0.02)

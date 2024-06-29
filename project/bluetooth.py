@@ -52,7 +52,7 @@ while True:
     if(s != None):
         try:
             j=ujson.loads(s)
-            #print(j)
+            ##print(j)
             
             cmd=j.get("Forward")
             if cmd != None:
@@ -137,7 +137,7 @@ while True:
                 strip.pixels_show()
                 uart.write("{\"State\":\"RGB:\("+cmd+")\"}")
         except:
-            print("err")
+            #print("err")
     
     if((utime.ticks_ms() - t) > 3000):
         t=utime.ticks_ms()

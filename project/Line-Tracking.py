@@ -3,7 +3,7 @@ from Motor import PicoGo
 import time
 
 
-print("\nTRSensor Test Program ...\r\n")
+#print("\nTRSensor Test Program ...\r\n")
 time.sleep(3)
 M = PicoGo()
 TRS=TRSensor()
@@ -13,17 +13,17 @@ for i in range(100):
     else:
         M.setMotor(-30,30)
     TRS.calibrate()
-print("\ncalibrate done\r\n")
-print(TRS.calibratedMin)
-print(TRS.calibratedMax)
-print("\ncalibrate done\r\n")
+#print("\ncalibrate done\r\n")
+#print(TRS.calibratedMin)
+#print(TRS.calibratedMax)
+#print("\ncalibrate done\r\n")
 maximum = 100
 integral = 0
 last_proportional = 0
 
 while True:
-    #print(TRS.readCalibrated())
-    #print(TRS.readLine())
+    ##print(TRS.readCalibrated())
+    ##print(TRS.readLine())
     position,Sensors = TRS.readLine()
     #time.sleep(0.1)
     if((Sensors[0] + Sensors[1] + Sensors[2]+ Sensors[3]+ Sensors[4]) > 4000):
